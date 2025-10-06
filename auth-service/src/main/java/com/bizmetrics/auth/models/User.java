@@ -1,4 +1,4 @@
-package com.bizmetrics.auth.model;
+package com.bizmetrics.auth.models;
 
 import java.time.LocalDateTime;
 
@@ -13,37 +13,31 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "kpis")
+@Table(name = "users")
 @Getter
 @Setter
-public class KPI {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
+    @Size(max = 50)
+    private String username;
+
+    @NotBlank
     @Size(max = 100)
-    private String name;
+    private String password;
 
     @NotBlank
-    @Size(max = 255)
-    private String description;
-
-    @NotNull
-    private Double targetValue;
-
-    @NotNull
-    private Double meta;
-
-    @NotBlank
-    private String periodicity;
+    @Size(max = 100)
+    private String email;
 
     @ManyToOne
     @JoinColumn(name = "company_id", nullable = false)
@@ -54,5 +48,6 @@ public class KPI {
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
 
 }

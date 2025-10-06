@@ -1,4 +1,4 @@
-package com.bizmetrics.auth.model;
+package com.bizmetrics.auth.models;
 
 import java.time.LocalDateTime;
 
