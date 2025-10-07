@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(BusinessExcepetion.class)
-    public ResponseEntity<String> handleBusinessException(BusinessExcepetion ex) {
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<String> handleBusinessException(BusinessException ex) {
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
 
